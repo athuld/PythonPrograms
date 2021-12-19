@@ -8,5 +8,5 @@ while temp != 0:
     sum += rem
     temp //= 10
 
-print("Reverse of ", n, "is", rev)
+print("\nReverse of ", n, "is", rev)
 print("Sum of digits is", sum)

@@ -13,5 +13,5 @@ def factWithoutRecursion(n):
 
 
 n = int(input("Enter a number: "))
-print("Factorial of", n, "with recursion:", factWithRecursion(n))
+print("\nFactorial of", n, "with recursion:", factWithRecursion(n))
 print("Factorial of", n, "without recursion:", factWithoutRecursion(n))

@@ -60,8 +60,7 @@ def checkFibonacci(n):
 
 
 n = int(input("Enter a number: "))
-print("\n")
-
+print()
 checkPrime(n)
 checkAmstrong(n)
 checkPerfect(n)

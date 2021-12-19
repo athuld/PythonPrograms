@@ -5,7 +5,7 @@ while temp != 0:
     rem = temp % 10
     rev = rev * 10 + rem
     temp //= 10
-
+print()
 if rev == n:
     print(n, "is a palindrome")
 else:
