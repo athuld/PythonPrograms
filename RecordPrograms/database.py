@@ -6,13 +6,34 @@ con = pymysql.connect(
 
 cursor = con.cursor()
 
+def delete():
+    id = int(input("Enter the id: "))
+    sql = "delete from test where id={}".format(id)
+    try:
+        cursor.execute(sql)
+        con.commit()
+        print("Deleted")
+    except:
+        con.rollback()
 
-def insert():
-    sql = "insert into test values(25,'Athul',23)"
+def update():
     id = int(input("Enter the id: "))
     name = input("Enter the name: ")
     age = int(input("Enter the age: "))
-    sql = f"insert into test values({id},'{name}',{age})"
+    sql = "update test set name='{}',age={} where id={}".format(name,age,id)
+    try:
+        cursor.execute(sql)
+        con.commit()
+        print("Data Updated")
+    except:
+        con.rollback()
+
+def insert():
+    id = int(input("Enter the id: "))
+    name = input("Enter the name: ")
+    age = int(input("Enter the age: "))
+    sql = "insert into test values({},'{}',{})".format(id,name,age)
+    # sql = "update test set name='{}',age={} where id={}".format(name,age,id)
     try:
         cursor.execute(sql)
         con.commit()
@@ -32,12 +53,16 @@ def display():
 
 
 while True:
-    print("\n1.Insert\n2.Display\n3.Exit")
+    print("\n1.Insert\n2.Display\n3.Delete\n4.Update\n5.Exit")
     ch = int(input("Enter the choice: "))
     if ch == 1:
         insert()
     elif ch == 2:
         display()
+    elif ch == 3:
+        delete()
+    elif ch == 4:
+        update()
     else:
         break
 
