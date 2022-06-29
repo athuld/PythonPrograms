@@ -1,6 +1,6 @@
-import pymysql
+import MySQLdb
 
-con = pymysql.connect(
+con = MySQLdb.connect(
     host="localhost", port=3306, database="db", user="root", passwd="root"
 )
 
@@ -33,7 +33,6 @@ def insert():
     name = input("Enter the name: ")
     age = int(input("Enter the age: "))
     sql = "insert into test values({},'{}',{})".format(id,name,age)
-    # sql = "update test set name='{}',age={} where id={}".format(name,age,id)
     try:
         cursor.execute(sql)
         con.commit()
