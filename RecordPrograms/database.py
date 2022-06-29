@@ -50,9 +50,17 @@ def display():
     except:
         print("Unable to fetch data")
 
+def create_table():
+    sql="create table test(id int,name varchar(30),age int)"
+    try:
+        cursor.execute(sql)
+        con.commit()
+        print("Table created")
+    except:
+        con.rollback()
 
 while True:
-    print("\n1.Insert\n2.Display\n3.Delete\n4.Update\n5.Exit")
+    print("\n1.Insert\n2.Display\n3.Delete\n4.Update\n5.Create Table\n6.Exit")
     ch = int(input("Enter the choice: "))
     if ch == 1:
         insert()
@@ -62,6 +70,8 @@ while True:
         delete()
     elif ch == 4:
         update()
+    elif ch == 5:
+        create_table()
     else:
         break
 
